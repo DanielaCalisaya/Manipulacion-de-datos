@@ -97,7 +97,7 @@ const moviesController = {
     delete: function (req, res) {
         db.Movie.findByPk(req.params.id)
         .then((movie) => {
-            res.render('moviesDelete' , {
+            res.render('moviesDelete', {
                 movie
             })
         })
@@ -110,7 +110,7 @@ const moviesController = {
         })
         .then((result) => {
             console.log(result)
-            res.redirect('movies')
+            res.redirect('movies')/* movies o /movies??? */
         })
     }
 
