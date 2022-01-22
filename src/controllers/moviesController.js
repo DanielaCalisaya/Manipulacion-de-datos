@@ -5,7 +5,7 @@ const sequelize = db.sequelize;
 const Movies = db.Movie;
 
 const moviesController = {
-    'list': (req, res) => {
+    'list': (req, res) => { /* también las propiedades del objeto se pueden poner como string */
         db.Movie.findAll()
             .then(movies => {
                 res.render('moviesList.ejs', {movies})
@@ -45,9 +45,10 @@ const moviesController = {
         res.render('moviesAdd')  
     },
     create: function (req, res) {
+        /* destructuración del body */
         const { title, rating, release_date, length, awards } = req.body
         db.Movie.create({
-            title,
+            title,  /* puede que el nombre de la columna no sea la misma que el nombre del imput */
             rating,
             release_date,
             length,
@@ -59,7 +60,7 @@ const moviesController = {
             res.send(error) /* lo manejamos simple, pero podemos enviar un email con los errores */
         })
     },
-    edit: function(req, res) {
+    edit: function (req, res) {
         db.Movie.findByPk(req.params.id)
         .then((movie) => {
             res.render('moviesEdit', {
@@ -70,17 +71,17 @@ const moviesController = {
             res.send(error)  
         })
     },
-    update: function (req,res) {
+    update: function (req, res) {
 
         const {title, rating, release_date, length, awards} = req.body
 
         db.Movie.update({ 
-            title,
+            title, /* esto es lo que pasaremos como dato para que lo reemplace */
             rating,
             release_date,
             length,
             awards
-        },  {
+        }, {
                 where: {
                     id: req.params.id
                 }
@@ -93,8 +94,8 @@ const moviesController = {
             .catch((error) => {
                 res.send(error)  
             })
-    },
-    delete: function (req, res) {
+    }, 
+    delete: function (req, res) { /* me mostrará la vista */
         db.Movie.findByPk(req.params.id)
         .then((movie) => {
             res.render('moviesDelete', {
@@ -102,7 +103,7 @@ const moviesController = {
             })
         })
     },
-    destroy: function (req, res) {
+    destroy: function (req, res) { /* eliminará el registro */
         db.Movie.destroy({
             where: {
                 id: req.params.id
@@ -110,10 +111,12 @@ const moviesController = {
         })
         .then((result) => {
             console.log(result)
-            res.redirect('movies')/* movies o /movies??? */
+            res.redirect('/movies')
         })
     }
 
 }
+
+/* A la hora de borrar, no podré borrar todas porque algunas estarán enlazadas por una tabla pivot */
 
 module.exports = moviesController;

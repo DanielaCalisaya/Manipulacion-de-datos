@@ -12,7 +12,9 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
       </figure>
+
     <h1>Estas seguro de querer borrar esta película: <%= movie.title %>???</h1>
+    
     <p>
         <form action="/movies/destroy/<%= movie.id %>?_method=DELETE" method="POST">
             <br>
