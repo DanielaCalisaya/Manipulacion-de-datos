@@ -9,6 +9,7 @@ almacenada en dicha base de datos. Ahora, practicaremos el resto de las
 operaciones para manipular datos con el ORM Sequelize.
 ¡Buena suerte!😎👍✨
 
+## M6 C32
 
 ## Clase 81
 
