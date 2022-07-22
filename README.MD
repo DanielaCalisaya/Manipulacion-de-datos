@@ -2,12 +2,13 @@
 
 ![portada](public/img/cover2.png)
 
-## Objetivo
-En la práctica anterior vimos cómo conectar un proyecto de Node.js con Express a
-una base de datos y cómo podíamos listar y mostrar la información que teníamos
-almacenada en dicha base de datos. Ahora, practicaremos el resto de las
-operaciones para manipular datos con el ORM Sequelize.
-¡Buena suerte!😎👍✨
+## Sobre este proyecto...
+
+En este proyecto se puede acceder al formulario para la creación de una pelicula, recibe los datos, la escribe en la base de datos y redirige a la persona al listado de películas.
+
+En el formulario del detalle de la pelicula hay botones que permite editar/actualizar la información de una pelicula y posteriormente guardarla. También hay otro botón que permite borrar la pelicula de la base de datos. 
+
+Entonces de esta manera  manipulamos los datos con el ORM Sequelize. 😎👍✨
 
 ## M6 C32
 
